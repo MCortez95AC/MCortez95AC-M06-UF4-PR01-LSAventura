@@ -1,27 +1,53 @@
 # M06UF4PR01LSAventureAgustopaMiguel
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.5.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Ejercicio #1 LSAventura
+La empresa LSAventura (empresa especializada en deportes de aventura) necesita una aplicación para guardar las actividades planificadas.
+Nos pide realizar una web donde se podrá realizar un CRUD de las actividades siempre que el usuario esté logueado.
+Al momento de mostrar, crear y actualizar una actividad, se deberá ver la previsión meteorológica de ese día. Cada vez que se modifique la fecha en el formulario de creación o actualización, se debe mostrar la predicción meteorológica de ese día seleccionado (este campo del formulario debe ser tipo “date”).
+Cada actividad tendrá los campos: nombre, fecha, predicción.
+Cuando hablamos de CRUD, recordad que se definen las acciones: crear, actualizar, eliminar, obtener una lista de elementos (en este caso no hace falta realizar una vista para mostrar un solo elemento).
+Requisitos técnicos de Angular:
+• Para dividir la aplicación se debe separar en 2 módulos: uno para el CRUD de actividades y otro para el login.
+• Crear los modelos de actividad y usuario.
+• Crear un guard CanActivate para comprobar que el usuario está logueado.
+• Crear un guard CanDeactivate para comprobar que se han hecho cambios en la actualización de una actividad.
+• Definir una redirección para la ruta raíz y una ruta 404.
+• Definir una ruta hija para acceder al formulario de creación de una actividad, de la ruta del listado de actividades.
+• Definir el botón de eliminación de una actividad con un componente hijo del componente que muestre la lista de actividades (por lo tanto, definir la comunicación padre->hijo para enviar el id de la actividad a eliminar).
+• Solo la petición del listado de actividades debería devolver un observable, las demás peticiones se deben tratar como promesas en los componentes.
+Predicción meteorológica
+Se obtendrá la predicción meteorológica usando el servicio externo que ofrece esta API: https://www.metaweather.com/api/
+Al usar este servicio ten en cuenta que:
+• Solo obtiene valores futuros de 5 o 10 días.
+• Usa el “Woeid” de Barcelona que es: 753692.
+M06-UF4-PR01
+ICA001.S1.C1.PR
+Página 3
+• Al guardar la predicción en la base de datos, simplemente guarda el campo “weather_state_name”.
+• Al momento de mostrar la predicción, se debe mostrar en formato de imagen.
+• En una petición obtendrás muchas predicciones, usa siempre la primera predicción obtenida, ya que es la más actual.
+Base de datos
+Para realizar el CRUD de actividades se usará la BBDD Firestore de la herramienta Firebase. Aquí tienes un enlace para ver como realizar el CRUD: https://medium.com/angular-chile/angular-6-y-firestore-b7f270adcc96
+Login
+Para realizar el login, se puede escoger realizarlo con Firebase o simularlo con la API https://reqres.in/
+Puntuación
+La puntuación se dividirá de la siguiente forma:
+• Puntuación compartida:
+o (1p) Implementación de la BBDD Firestore en la aplicación.
+o (0,5p) *Uso de Git.
+o (0,5p) *Estilos bien definidos.
+o (0,5p) *Login con Firebase.
+o (0,5p) *Subir la aplicación al hosting de Firebase.
+• Puntuación del desarrollador 1:
+o (2,5p) Creación y listado de actividades.
+o (1p) Login, más el guard CanActivate, el módulo de login y sus rutas.
+o (1p) Ruta raíz, modelo de usuario.
+o (1,5p) Seguimiento semanal (0,5 cada seguimiento días: 21 o 23, 28 o 30, y 5 o 7).
+o (1p) *Calidad del código y separación de código en servicios, componentes, etc.
+• Puntuación del desarrollador 2:
+o (2,5p) Actualización (más el guard CanDeactivate) y eliminación de actividades.
+o (1p) Creación del módulo de actividades y sus rutas (incluida la ruta del formulario de creación).
+o (1p) Ruta 404, modelo de actividad.
+o (1,5p) Seguimiento semanal (0,5 cada seguimiento días: 21 o 23, 28 o 30, y 5 o 7).
+o (1p) *Calidad del código y separación de código en servicios, componentes, etc.
+Los apartados marcados con un * no se contarán a menos que se obtenga un mínimo de 5 en los demás puntos.

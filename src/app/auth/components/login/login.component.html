@@ -1,1 +1,24 @@
-<p>login works!</p>
+<div class="container py-5">
+    <form class="login__form" (submit)="login()">
+        <header class="login__header">
+            <h1 class="login__title">Login</h1>
+        </header>
+        <main class="login__main">
+            <div class="login__group">
+                <input class="login__input" type="email" [(ngModel)]="user.email" name="input_email" required>
+                <label class="login__label" >E-mail </label>
+                <div class="login__bar"></div>
+            </div>
+            <div class="login__group">
+                <input class="login__input" type="password" [(ngModel)]="user.password" name="input_password" required>
+                <label class="login__label">Contraseña </label>
+                <div class="login__bar"></div>
+            </div>
+            <h4 class="text-center mt-4 mb-4">LSAventura</h4>
+            <span class="text-center mt-3 mb-3 text-danger">{{errorMessage}}</span>
+        </main>
+        <footer class="login__footer">
+            <input class="login__button" type="submit" name="btn_signin" value="Login">
+        </footer>
+    </form>
+</div>

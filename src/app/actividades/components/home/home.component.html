@@ -1,4 +1,38 @@
-<p>home works!</p>
+<div class="row justify-content-center">
+    <div class="col-11 mt-4">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h3 class="card-title float-left">Nuestras Actividades</h3>
+                <a href="#" class="btn bg-success float-right">New Product</a>
+            </div>
+            <div class="card-body  table-responsive overflow-auto">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Fecha</th>
+                            <th>Predicción</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor=" let actividad of actividades$ | async">
+                        <tr>
+                            <td>{{actividad.nombre}}</td>
+                            <td>{{actividad.fecha}}</td>
+                            <td>{{actividad.prediccion}}</td>
+                            <td>
+                                <div class="btn--group">
+                                    <button class="btn btn-warning btn-sm mr-1">Editar</button>
+                                    <button class="btn btn-danger btn-sm">Eliminar</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 <main>
     <router-outlet></router-outlet>
 </main>

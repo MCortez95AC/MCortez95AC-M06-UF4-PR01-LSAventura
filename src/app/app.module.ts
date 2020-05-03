@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 
 import { AuthModule } from './auth/auth.module';
 import { ActividadesModule } from './actividades/actividades.module';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { ActividadesModule } from './actividades/actividades.module';
     BrowserModule,
     AuthModule,
     ActividadesModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
